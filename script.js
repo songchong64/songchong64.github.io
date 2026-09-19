@@ -16,9 +16,9 @@ bioHeading.remove();
 
 const keynoteHeading=[...document.querySelectorAll('#professional-activities .subhead')]
   .find(heading=>heading.textContent.trim().toLowerCase()==='keynote speech');
-const invitedTalksBody=document.querySelector('#invited-talks .section-body');
+const invitedTalksSection=document.querySelector('#invited-talks');
 
-if(keynoteHeading&&invitedTalksBody){
+if(keynoteHeading&&invitedTalksSection){
   const keynoteItems=[];
   let item=keynoteHeading.nextElementSibling;
 
@@ -27,5 +27,14 @@ if(keynoteHeading&&invitedTalksBody){
     item=item.nextElementSibling;
   }
 
-  invitedTalksBody.prepend(keynoteHeading,...keynoteItems);
+  const keynoteSection=document.createElement('section');
+  keynoteSection.className='section';
+  keynoteSection.id='keynote-speech';
+  keynoteSection.innerHTML='<header><h2>Keynote Speech</h2></header><div class="section-body"></div>';
+  keynoteSection.querySelector('.section-body').append(...keynoteItems);
+  invitedTalksSection.before(keynoteSection);
+  keynoteHeading.remove();
+
+  const talksLink=document.querySelector('#links a[href="#invited-talks"]');
+  if(talksLink) talksLink.href='#keynote-speech';
 }
