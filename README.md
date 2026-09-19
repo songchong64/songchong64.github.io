@@ -1,7 +1,7 @@
 # Song Chong Academic Website
 
-Personal academic website for Professor Song Chong, designed for deployment at `https://songchong.github.io`.
+Personal academic website for Professor Song Chong, published at `https://songchong64.github.io`.
 
 ## Publishing
 
-This repository is intended to be named `songchong.github.io`. GitHub Pages will publish the site from the repository root.
+This repository is named `songchong64.github.io`. GitHub Pages publishes the site from the repository root.
