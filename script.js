@@ -9,8 +9,7 @@ linkedin.rel='noreferrer';
 linkedin.textContent='LinkedIn';
 profileActions.insertBefore(linkedin,profileActions.lastElementChild);
 
-document.querySelector('.topnav a[href="#bio"]')?.remove();
-document.querySelector('#bio')?.remove();
-document.querySelector('.about')?.remove();
-const skipLink=document.querySelector('.skip');
-skipLink.href='#education';
+const bioHeading=document.querySelector('#bio');
+const about=document.querySelector('.about');
+about.id='bio';
+bioHeading.remove();
