@@ -8,3 +8,9 @@ linkedin.target='_blank';
 linkedin.rel='noreferrer';
 linkedin.textContent='LinkedIn';
 profileActions.insertBefore(linkedin,profileActions.lastElementChild);
+
+document.querySelector('.topnav a[href="#bio"]')?.remove();
+document.querySelector('#bio')?.remove();
+document.querySelector('.about')?.remove();
+const skipLink=document.querySelector('.skip');
+skipLink.href='#education';
