@@ -1,16 +1,3 @@
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('#site-nav');
-
-toggle?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(open));
-});
-
-nav?.addEventListener('click', (event) => {
-  if (event.target instanceof HTMLAnchorElement) {
-    nav.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
-  }
-});
-
-document.querySelector('#year').textContent = new Date().getFullYear();
+const toggle=document.querySelector('.search-toggle'),panel=document.querySelector('#search-panel'),input=document.querySelector('#cv-search'),clear=document.querySelector('#clear-search'),status=document.querySelector('#search-status'),items=[...document.querySelectorAll('.cv-item')],sections=[...document.querySelectorAll('.cv-section')];
+function search(){const q=input.value.trim().toLowerCase();let shown=0;items.forEach(item=>{const match=!q||item.dataset.search.includes(q);item.hidden=!match;if(match)shown++});sections.forEach(section=>section.hidden=section.querySelectorAll('.cv-item:not([hidden])').length===0);status.textContent=q?`${shown} matching entries`:''}
+toggle.addEventListener('click',()=>{panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden));if(!panel.hidden)input.focus()});input.addEventListener('input',search);clear.addEventListener('click',()=>{input.value='';search();input.focus()});
