@@ -13,3 +13,19 @@ const bioHeading=document.querySelector('#bio');
 const about=document.querySelector('.about');
 about.id='bio';
 bioHeading.remove();
+
+const keynoteHeading=[...document.querySelectorAll('#professional-activities .subhead')]
+  .find(heading=>heading.textContent.trim().toLowerCase()==='keynote speech');
+const invitedTalksBody=document.querySelector('#invited-talks .section-body');
+
+if(keynoteHeading&&invitedTalksBody){
+  const keynoteItems=[];
+  let item=keynoteHeading.nextElementSibling;
+
+  while(item&&!item.matches('.subhead')){
+    keynoteItems.push(item);
+    item=item.nextElementSibling;
+  }
+
+  invitedTalksBody.prepend(keynoteHeading,...keynoteItems);
+}
