@@ -9,6 +9,14 @@ linkedin.rel='noreferrer';
 linkedin.textContent='LinkedIn';
 profileActions.insertBefore(linkedin,profileActions.lastElementChild);
 
+const standaloneEmail=profileActions.querySelector('a[href^="mailto:"]');
+if(standaloneEmail) standaloneEmail.remove();
+
+const contactDetails=document.querySelector('.contact-grid > div:first-child p');
+if(contactDetails){
+  contactDetails.innerHTML='Address: Room 601, Kim Jaechul Graduate School of AI, KAIST,<br>108 Taebong-ro, Seocho-gu, Seoul 06764, Republic of Korea<br>Email: <a href="mailto:songchong@kaist.edu">songchong@kaist.edu</a><br>Phone: +82-10-9929-3473 (mobile), +82-2-958-0751 (office)';
+}
+
 const bioHeading=document.querySelector('#bio');
 const about=document.querySelector('.about');
 about.id='bio';
